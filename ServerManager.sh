@@ -20,7 +20,6 @@ echo "💻 OS         : $os_info"
 echo "============================================"
 
 # while true; do
-...
 # done
   echo ""
   echo "========= SSH & Firewall ========="
