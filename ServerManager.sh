@@ -19,7 +19,9 @@ echo "📅 Date/Time  : $datetime"
 echo "💻 OS         : $os_info"
 echo "============================================"
 
-while true; do
+# while true; do
+...
+# done
   echo ""
   echo "========= SSH & Firewall ========="
   echo "1) 🔧 Change SSH Port"
