@@ -113,19 +113,25 @@ echo "0) ❌ Exit"
     11)
       bash <(curl -Ls https://raw.githubusercontent.com/alireza0/s-ui/main/install.sh)
       ;;
-    12)
-      echo ""
-      echo "Select Marzban DB type:"
-      echo "1) SQLite (Default)"
-      echo "2) MariaDB"
-      echo "3) MySQL"
-      read -p "Select [1-3]: " dbopt
-      case $dbopt in
-        2) sudo bash -c "$(curl -sL https://github.com/Gozargah/Marzban-scripts/raw/main/mariadb.sh)" ;;
-        3) sudo bash -c "$(curl -sL https://github.com/Gozargah/Marzban-scripts/raw/main/mysql.sh)" ;;
-        *) sudo bash -c "$(curl -sL https://github.com/Gozargah/Marzban-scripts/raw/main/sqlite.sh)" ;;
-      esac
+      12)
+  echo ""
+  echo "Select Marzban DB type:"
+  echo "1) SQLite (Default)"
+  echo "2) MariaDB"
+  echo "3) MySQL"
+  read -p "Select [1-3]: " dbopt
+  case $dbopt in
+    2)
+      sudo bash -c "$(curl -sL https://github.com/Gozargah/Marzban-scripts/raw/mast>
       ;;
+    3)
+      sudo bash -c "$(curl -sL https://github.com/Gozargah/Marzban-scripts/raw/mast>
+      ;;
+    *)
+      sudo bash -c "$(curl -sL https://github.com/Gozargah/Marzban-scripts/raw/mast>
+      ;;
+  esac
+  ;;
     13)
       docker rm -f x-ui && docker rmi $(docker images | grep x-ui | awk '{print $3}')
       echo "✅ XUI panel removed."
@@ -134,10 +140,24 @@ echo "0) ❌ Exit"
       docker rm -f sui && docker rmi $(docker images | grep sui | awk '{print $3}')
       echo "✅ SUI panel removed."
       ;;
-    15)
-      docker rm -f marzban && docker rmi $(docker images | grep marzban | awk '{print $3}')
-      echo "✅ Marzban panel removed."
-      ;;
+     15)
+  echo " Looking for Marzban containers..."
+  marzban_containers=$(docker ps -aqf "ancestor=gozargah/marzban")
+  if [ -n "$marzban_containers" ]; then
+    echo "?? Stopping and removing containers..."
+    docker stop $marzban_containers
+    docker rm $marzban_containers
+  else
+    echo "⚠️ No Marzban containers found."
+  fi
+  echo "?? Removing Marzban images..."
+  marzban_images=$(docker images | grep marzban | awk '{print $3}' | sort | uniq)
+  for img in $marzban_images; do
+    echo "➡️ Removing image: $img"
+    docker rmi -f $img
+  done
+  echo "✅  Marzban panel fully removed."
+  ;;
     16) bash install_marzban_ssl.sh
     ;;
     17)
