@@ -122,13 +122,13 @@ echo "0) ❌ Exit"
   read -p "Select [1-3]: " dbopt
   case $dbopt in
     2)
-      sudo bash -c "$(curl -sL https://github.com/Gozargah/Marzban-scripts/raw/mast>
+      curl -sL https://github.com/Gozargah/Marzban-scripts/raw/master/marzban.sh | bash -s -- install --database mariadb
       ;;
     3)
-      sudo bash -c "$(curl -sL https://github.com/Gozargah/Marzban-scripts/raw/mast>
+      curl -sL https://github.com/Gozargah/Marzban-scripts/raw/master/marzban.sh | bash -s -- install --database mysql
       ;;
     *)
-      sudo bash -c "$(curl -sL https://github.com/Gozargah/Marzban-scripts/raw/mast>
+      curl -sL https://github.com/Gozargah/Marzban-scripts/raw/master/marzban.sh | bash -s -- install
       ;;
   esac
   ;;
