@@ -45,8 +45,9 @@ echo "============================================"
   echo "14) 🧹 Remove Control Panel (SUI)"
   echo "15) 🧹 Remove Control Panel (Marzban)"
   echo ""
-  echo "========= Info ========="
-  echo "16) 📊 Run Python Info Script"
+  ======== SSL & Info ========
+  echo "16) 🛡 Install SSL for Marzban
+  echo "17) 📊 Run Python Info Script
   echo ""
   echo "0) ❎ Exit"
   echo "============================================"
@@ -137,7 +138,9 @@ echo "============================================"
       docker rm -f marzban && docker rmi $(docker images | grep marzban | awk '{print $3}')
       echo "✅ Marzban panel removed."
       ;;
-    16)
+    16) bash install_marzban_ssl.sh
+    ;;
+    17)
       clear
       if [ -f "./info.py" ]; then
         echo "▶️ Running info.py ..."
