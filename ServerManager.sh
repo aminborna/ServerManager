@@ -45,11 +45,11 @@ echo "============================================"
   echo "14) 🧹 Remove Control Panel (SUI)"
   echo "15) 🧹 Remove Control Panel (Marzban)"
   echo ""
-  ======== SSL & Info ========
-  echo "16) 🛡 Install SSL for Marzban
-  echo "17) 📊 Run Python Info Script
-  echo ""
-  echo "0) ❎ Exit"
+echo "======== SSL & Info ========"
+echo "16) 🛡 Install SSL for Marzban"
+echo "17) 📊 Run Python Info Script"
+echo ""
+echo "0) ❌ Exit"
   echo "============================================"
   read -p "Select an option: " opt
 
