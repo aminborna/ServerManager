@@ -14,6 +14,11 @@ curl -sSL https://raw.githubusercontent.com/aminborna/ServerManager/main/info.py
 chmod +x /root/info.py
 echo "✅ info.py added."
 
+# 🔽 Download install_marzban_ssl.sh
+curl -sSL https://raw.githubusercontent.com/aminborna/ServerManager/main/install_marzban_ssl.sh -o /root/install_marzban_ssl.sh
+chmod +x /root/install_marzban_ssl.sh
+echo "✅ install_marzban_ssl.sh added."
+
 # 🐍 Setup Python pip and install required libraries
 echo "📚 Installing Python libraries: psutil, requests..."
 python3 -m ensurepip --upgrade
