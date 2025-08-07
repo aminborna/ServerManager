@@ -25,11 +25,10 @@ python3 -m ensurepip --upgrade
 python3 -m pip install --upgrade pip
 python3 -m pip install psutil requests
 
-# 🔁 Add xtop alias if not exists
-if ! grep -q "alias xtop=" ~/.bashrc; then
-  echo "alias xtop='bash /root/ServerManager.sh'" >> ~/.bashrc
-  echo "✅ xtop alias added to ~/.bashrc"
-fi
+# 🔗 Create global command for xtop
+ln -sf /root/ServerManager.sh /usr/local/bin/xtop
+chmod +x /usr/local/bin/xtop
+echo "✅ 'xtop' command is now globally available."
 
 # 🔁 Add bash install.sh shortcut
 if ! grep -q "alias installmanager=" ~/.bashrc; then
